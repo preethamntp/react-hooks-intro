@@ -1,27 +1,30 @@
-import React from 'react';
+import React, { useContext, useReducer } from 'react';
 import ReactDOM from 'react-dom';
-// import App from './AppFunction';
-// import App from "./AppClass";
-// import App from "./Login";
-// import App from "./Register";
+ 
+import TodosContext from './combiningReducer-Context/context';
+import todosReducer from './combiningReducer-Context/reducer';
 
-import App from "./App";
 
 import * as serviceWorker from './serviceWorker';
+import TodoList from './Components/TodoList';
 
- export const UserContext = React.createContext();
- const username = "Dave";
 
-ReactDOM.render( 
-<UserContext.Provider value={username}>
-< App / >
-</UserContext.Provider>
+const App = () => {
+    const initialState = useContext(TodosContext);
+    const [state, dispatch] = useReducer(todosReducer, initialState)
 
- , document.getElementById('root'));
+    return (
+        <TodosContext.Provider value={{ state, dispatch }}>
+            <TodoList />
+        </TodosContext.Provider>
+    )
+}
 
-{/* if (module.hot) {
-    module.hot.accept();
-} */}
+ReactDOM.render(
+    < App />
+    , document.getElementById('root'));
+
+ 
 
 
 // If you want your app to work offline and load faster, you can change
