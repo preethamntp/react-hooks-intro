@@ -5,15 +5,23 @@ import ReactDOM from 'react-dom';
 // import App from "./Login";
 // import App from "./Register";
 
-import App from "./App"
+import App from "./App";
 
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render( < App / > , document.getElementById('root'));
+ export const UserContext = React.createContext();
+ const username = "Dave";
 
-if (module.hot) {
+ReactDOM.render( 
+<UserContext.Provider value={username}>
+< App / >
+</UserContext.Provider>
+
+ , document.getElementById('root'));
+
+{/* if (module.hot) {
     module.hot.accept();
-}
+} */}
 
 
 // If you want your app to work offline and load faster, you can change
