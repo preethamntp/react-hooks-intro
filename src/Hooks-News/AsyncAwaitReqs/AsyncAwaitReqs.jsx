@@ -11,7 +11,7 @@ export default function AsyncAwaitReqs() {
 
     useEffect(() => {
         getResults();
-    }, []);
+    },[]);
 
     const getResults = async () => {
         setLoading(true);
@@ -23,7 +23,6 @@ export default function AsyncAwaitReqs() {
         } catch (error) {
             setError(error)
         }
-
         setLoading(false);
     }
 
@@ -46,7 +45,7 @@ export default function AsyncAwaitReqs() {
             className="float-right h-12"
             />
             <h1 className="text-grey-darkest font-thin">Hooks News</h1>
-            <form onSubmit={search}
+            <form onSubmit={(e)=>search(e)}
             className="mb-2"
             >
                 <input type="text"
