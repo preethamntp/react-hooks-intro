@@ -7,7 +7,7 @@ import todosReducer from './combiningReducer-Context/reducer';
 
 import * as serviceWorker from './serviceWorker';
 import TodoList from './Components/TodoList';
-
+import ToDoForm from './Components/ToDoForm';
 
 const App = () => {
     const initialState = useContext(TodosContext);
@@ -15,6 +15,7 @@ const App = () => {
 
     return (
         <TodosContext.Provider value={{ state, dispatch }}>
+            <ToDoForm/>
             <TodoList />
         </TodosContext.Provider>
     )
