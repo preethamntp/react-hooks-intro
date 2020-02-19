@@ -12,18 +12,14 @@ function reducer(state, action) {
             return {
                 count: state.count + 1
             }
-            break;
         case "decrement":
             return {
                 count: state.count - 1
             }
-            break;
         case "reset":
             return initialState;
-            break;
         default:
             return initialState
-            break;
     }
 }
 
